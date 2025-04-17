@@ -10,6 +10,7 @@ docker build -t meu-next-app .
 docker run -p 3000:3000 meu-next-app
 
 ## Getting Started
+npx next telemetry disable
 
 First, run the development server:
 
