@@ -1,0 +1,9 @@
+# Dockerfile.dev
+FROM node:23.11.0-alpine
+WORKDIR /app  
+COPY package.json ./
+RUN npm install  
+COPY . .  
+# Gateway
+EXPOSE 3000  
+CMD ["npm", "run", "dev"]

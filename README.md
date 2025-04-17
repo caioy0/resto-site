@@ -1,5 +1,14 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+# Docker dev
+docker build -f Dockerfile.dev -t meu-next-dev .
+docker compose-up
+
+# Docker prod
+docker build -t meu-next-app .
+
+docker run -p 3000:3000 meu-next-app
+
 ## Getting Started
 
 First, run the development server:
