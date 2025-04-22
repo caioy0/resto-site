@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function Header() {
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0 mt-0 bg-gray-400">
+    <div className="flex flex-col md:flex-row justify-between items-center md:items-start space-y-5 md:space-y-0 mt-0">
         <div>
           <Image className="" src="/wave.svg" alt="Next.js logo" width={100} height={25} priority />
         </div>

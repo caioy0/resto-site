@@ -20,7 +20,7 @@ type CardProps = {
       >
         <img src={image} alt={name} className="rounded-xl w-full h-40 object-cover" />
         <h3 className="text-lg font-semibold mt-2">{name}</h3>
-        <p className="text-gray-500">R$ {price}</p>
+        <p className="text-gray-500 font-semibold">R$ {price}</p>
       </div>
 
       {isOpen && (

@@ -1,10 +1,10 @@
 // components/FilterBar.tsx
-type FiltroProps = {
+type FilterProps = {
     setCategoria: (categoria: string) => void;
     categoria: string;
   };
   
-  export default function Filtro({ setCategoria, categoria }: FiltroProps) {
+  export default function Filter({ setCategoria, categoria }: FilterProps) {
     return (
       <div className="flex justify-end mb-4 font-bold">
         <button

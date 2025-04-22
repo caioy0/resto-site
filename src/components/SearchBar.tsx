@@ -1,23 +1,24 @@
-import { useState } from "react";
+// src/components/SearchBar.tsx
+type Props = {
+  search: string;
+  setSearch: (value: string) => void;
+};
 
-export default function CampoDeBusca() {
-  const [busca, setBusca] = useState("");
-
+export default function SearchBar({ search, setSearch }: Props) {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setBusca(e.target.value);
-    console.log("Você digitou:", e.target.value);
+    setSearch(e.target.value);
   };
 
   return (
     <div>
-      <label htmlFor="busca">Buscar:</label>
+      <label htmlFor="busca"></label>
       <input
         type="text"
         id="busca"
         name="busca"
-        placeholder="Inserir busca"
-        className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
-        value={busca}
+        placeholder="Buscar..."
+        className="w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+        value={search}
         onChange={handleChange}
       />
     </div>

@@ -9,6 +9,10 @@ const nextConfig: NextConfig = {
     },
     resolveExtensions: ['.mdx', '.tsx', '.ts', '.jsx', '.js', '.json'],
   },
+  /* i18n: {
+    locales: ['en', 'pt'], 
+    defaultLocale: 'pt',     
+  },*/
 };
 
 export default nextConfig;
