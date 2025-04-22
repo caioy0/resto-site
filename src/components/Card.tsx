@@ -6,7 +6,7 @@ type CardProps = {
     name: string
     price: number
     image: string
-    categoria: string
+    category: string
     description: string
   }
   
@@ -41,7 +41,7 @@ type CardProps = {
           <img src={image} alt={name} className="rounded-xl w-full h-52 object-cover mb-4" />
           <h2 className="text-xl font-bold mb-2">{name}</h2>
           <p className="text-gray-600 mb-4">{description}</p>
-          <p className="text-lg font-semibold">{price}</p>
+          <p className="text-lg font-semibold">R$ {price}</p>
         </div>
       </div>
       )}

@@ -1,49 +1,49 @@
 // components/FilterBar.tsx
 type FilterProps = {
-    setCategoria: (categoria: string) => void;
-    categoria: string;
+    setCategory: (category: string) => void;
+    category: string;
   };
   
-  export default function Filter({ setCategoria, categoria }: FilterProps) {
+  export default function Filter({ setCategory, category }: FilterProps) {
     return (
       <div className="flex justify-end mb-4 font-bold">
         <button
           className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            categoria === 'none' ? 'bg-gray-200' : 'bg-white text-black'
+            category === 'none' ? 'bg-gray-200' : 'bg-white text-black'
           }`}
-          onClick={() => setCategoria('none')}
+          onClick={() => setCategory('none')}
         >
           Remover Filtro
         </button>
         <button
           className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            categoria === 'lamen' ? 'bg-gray-200' : 'bg-white text-black'
+            category === 'lamen' ? 'bg-gray-200' : 'bg-white text-black'
           }`}
-          onClick={() => setCategoria('lamen')}
+          onClick={() => setCategory('lamen')}
         >
           Lamen
         </button>
         <button
           className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            categoria === 'cafe' ? 'bg-gray-200' : 'bg-white text-black'
+            category === 'cafe' ? 'bg-gray-200' : 'bg-white text-black'
           }`}
-          onClick={() => setCategoria('cafe')}
+          onClick={() => setCategory('cafe')}
         >
           Café
         </button>
         <button
           className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            categoria === 'bebida' ? 'bg-gray-200' : 'bg-white text-black'
+            category === 'bebida' ? 'bg-gray-200' : 'bg-white text-black'
           }`}
-          onClick={() => setCategoria('bebida')}
+          onClick={() => setCategory('bebida')}
         >
           Bebida
         </button>
         <button
           className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            categoria === 'coreana' ? 'bg-gray-200' : 'bg-white text-black'
+            category === 'coreana' ? 'bg-gray-200' : 'bg-white text-black'
           }`}
-          onClick={() => setCategoria('coreana')}
+          onClick={() => setCategory('coreana')}
         >
           Comida Coreana
         </button>

@@ -12,12 +12,12 @@ import Header from "@/components/Header"
 export default function Home() {
   // const {t} = useTranslation('translation');
   const [search, setSearch] = useState("")
-  const [categoria, setCategoria] = useState<string>('none');
+  const [category, setCategory] = useState<string>('none');
 
   const itensFiltrados = menu.filter(item => {
-    const correspondeCategoria = categoria === 'none' || item.categoria === categoria;
+    const correspondeCategory = category === 'none' || item.category === category;
     const correspondeBusca = item.name.toLowerCase().includes(search.toLowerCase());
-    return correspondeCategoria && correspondeBusca;
+    return correspondeCategory && correspondeBusca;
   });
 
   return (
@@ -28,7 +28,7 @@ export default function Home() {
           <SearchBar search={search} setSearch={setSearch}/>
         </div>
         <div className="md:order-2">
-          <Filtro setCategoria={setCategoria} categoria={categoria} />
+          <Filtro setCategory={setCategory} category={category} />
         </div>
       </div>
 
@@ -40,7 +40,7 @@ export default function Home() {
             name={item.name}
             price={item.price}
             image={item.image}
-            categoria={item.categoria}
+            category={item.category}
             description={item.description}
           />
         ))}
