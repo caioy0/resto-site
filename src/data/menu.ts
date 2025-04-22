@@ -1,44 +1,50 @@
 export const menu = [
     {
       id: 1,
-      nome: "Cappuccino",
-      preco: 12,
-      imagem: "/cappuccino.png",
-      categoria: "cafe"
+      name: "Cappuccino",
+      price: 12,
+      image: "/cappuccino.png",
+      categoria: "cafe",
+      description: "waa"
     },
     {
       id: 2,
-      nome: "Ramen Tradicional",
-      preco: 45,
-      imagem: "/ramen.jpg",
-      categoria: "lamen"
+      name: "Ramen Tradicional",
+      price: 45,
+      image: "/ramen.jpg",
+      categoria: "lamen",
+      description: "waa"
     },
     {
       id: 3,
-      nome: "Soda Italiana",
-      preco: 15.50,
-      imagem: "/soda.png",
-      categoria: "bebida"
+      name: "Soda Italiana",
+      price: 15.50,
+      image: "/soda.png",
+      categoria: "bebida",
+      description: "waa"
     },
     {
       id: 4,
-      nome: "Coca-Cola",
-      preco: 7.50,
-      imagem: "/coca.webp",
-      categoria: "bebida"
+      name: "Coca-Cola",
+      price: 7.50,
+      image: "/coca.webp",
+      categoria: "bebida",
+      description: "waa"
     },
     {
       id: 5,
-      nome: "bulgogi",
-      preco: 40.50,
-      imagem: "/bulgogi.jpg",
-      categoria: "coreana"
+      name: "bulgogi",
+      price: 40.50,
+      image: "/bulgogi.jpg",
+      categoria: "coreana",
+      description: "waa"
     },
     {
       id: 6,
-      nome: "espresso",
-      preco: 6.50,
-      imagem: "/espresso.jpg",
-      categoria: "cafe"
+      name: "espresso",
+      price: 6.50,
+      image: "/espresso.jpg",
+      categoria: "cafe",
+      description: "waa"
     }
   ];

@@ -1,20 +1,51 @@
 // src/components/Card.tsx
 // itens cards
+import { useState } from "react"
 type CardProps = {
     id: number
-    nome: string
-    preco: number
-    imagem: string
+    name: string
+    price: number
+    image: string
     categoria: string
+    description: string
   }
   
-  export function Card({ nome, preco, imagem }: CardProps) {
+  export function Card({ name, price, image, description }: CardProps) {
+    const [isOpen, setIsOpen] = useState(false)
     return (
-      <div className="border rounded-xl p-4 bg-white shadow-md transition-transform duration-200 hover:scale-105 hover:shadow-lg ">
-        <img src={imagem} alt={nome} className="w-full h-48 object-cover rounded-md mb-2" />
-        <h3 className="mt-2 text-lg font-medium">{nome}</h3>
-        <p className="text-sm font-bold">R${preco}</p>
+      <>
+      <div
+        className="bg-white rounded-2xl shadow-md p-4 cursor-pointer hover:scale-105 transition"
+        onClick={() => setIsOpen(true)}
+      >
+        <img src={image} alt={name} className="rounded-xl w-full h-40 object-cover" />
+        <h3 className="text-lg font-semibold mt-2">{name}</h3>
+        <p className="text-gray-500">R$ {price}</p>
       </div>
-    )
+
+      {isOpen && (
+        <div
+          className="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+          onClick={() => setIsOpen(false)} 
+        >
+        <div
+          className="bg-white rounded-2xl p-6 max-w-md w-full relative shadow-lg"
+          onClick={(e) => e.stopPropagation()} 
+        >
+          <button
+            onClick={() => setIsOpen(false)}
+            className="absolute top-2 right-4 text-gray-500 text-4xl font-bold hover:scale-105 hover:text-red-600 transition"
+          >
+            &times;
+          </button>
+          <img src={image} alt={name} className="rounded-xl w-full h-52 object-cover mb-4" />
+          <h2 className="text-xl font-bold mb-2">{name}</h2>
+          <p className="text-gray-600 mb-4">{description}</p>
+          <p className="text-lg font-semibold">{price}</p>
+        </div>
+      </div>
+      )}
+    </>
+  )
   }
   
