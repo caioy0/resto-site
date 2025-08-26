@@ -24,11 +24,8 @@ export default function Home() {
     <main className="p-6">
       <Header/>
       <div className="mt-8 mb-8 flex flex-wrap flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-6">
-        <div className="w-full md:flex-1">
-          <SearchBar search={search} setSearch={setSearch}/>
-        </div>
         <div className="md:order-2">
-          <Filtro setCategory={setCategory} category={category} />
+          <Filtro setCategory={setCategory} category={category} /> 
         </div>
       </div>
 
