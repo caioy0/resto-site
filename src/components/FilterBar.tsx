@@ -1,53 +1,59 @@
-// components/FilterBar.tsx
+// src/components/FilterBar.tsx
+'use client'
+
+import { useRouter, useSearchParams } from 'next/navigation';
+
 type FilterProps = {
-    setCategory: (category: string) => void;
-    category: string;
+  category: string;
+  search: string;
+};
+
+export default function Filter({ category, search }: FilterProps) {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+
+  const handleCategoryChange = (newCategory: string) => {
+    const params = new URLSearchParams(searchParams.toString());
+
+    if (search) {
+      params.set('search', search);
+    } else {
+      params.delete('search');
+    }
+
+    if (newCategory !== 'none') {
+      params.set('category', newCategory);
+    } else {
+      params.delete('category');
+    }
+
+    router.push(`/?${params.toString()}`);
   };
-  
-  export default function Filter({ setCategory, category }: FilterProps) {
-    return (
-      <div className="flex justify-end mb-4 font-bold">
+
+  // Get all unique categories from your products
+  const categories = [
+    { value: 'none', label: 'Remover filtro' },
+    { value: 'cafe', label: 'Cafe' },
+    { value: 'lamen', label: 'Lamen' },
+    { value: 'bebida', label: 'Bebida' },
+    { value: 'coreana', label: 'Comida Coreana' },
+  ];
+
+  return (
+    <div className="flex flex-wrap justify-end gap-2 mb-4 font-bold">
+      {categories.map((cat) => (
         <button
-          className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            category === 'none' ? 'bg-gray-200' : 'bg-white text-black'
+          key={cat.value}
+          className={`px-4 py-2 rounded transition-colors ${
+            category === cat.value 
+              ? 'bg-gray-800 text-white' 
+              : 'bg-white text-black hover:bg-gray-200'
           }`}
-          onClick={() => setCategory('none')}
+          onClick={() => handleCategoryChange(cat.value)}
         >
-          Remover Filtro
+          {cat.label}
         </button>
-        <button
-          className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            category === 'lamen' ? 'bg-gray-200' : 'bg-white text-black'
-          }`}
-          onClick={() => setCategory('lamen')}
-        >
-          Lamen
-        </button>
-        <button
-          className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            category === 'cafe' ? 'bg-gray-200' : 'bg-white text-black'
-          }`}
-          onClick={() => setCategory('cafe')}
-        >
-          Café
-        </button>
-        <button
-          className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            category === 'bebida' ? 'bg-gray-200' : 'bg-white text-black'
-          }`}
-          onClick={() => setCategory('bebida')}
-        >
-          Bebida
-        </button>
-        <button
-          className={`mx-2 px-4 py-2 rounded hover:bg-gray-200 ${
-            category === 'coreana' ? 'bg-gray-200' : 'bg-white text-black'
-          }`}
-          onClick={() => setCategory('coreana')}
-        >
-          Comida Coreana
-        </button>
-      </div>
-    );
-  }
-  
+      ))}
+    </div>
+  );
+}

@@ -1,18 +1,23 @@
 // src/app/page.tsx
-'use client'
 
-import { useState } from "react";
 import { menu } from "@/data/menu"
 import { Card } from "@/components/Card"
-// import { useTranslation } from 'next-i18next'
-import Filtro  from "@/components/FilterBar"
-import SearchBar from '@/components/SearchBar'
+import Filter  from "@/components/FilterBar"
 import Header from "@/components/Header"
+//import SearchBar from '@/components/SearchBar'
+// import { useTranslation } from 'next-i18next'
 
-export default function Home() {
+interface HomePageProps {
+  searchParams: {
+    search?: string;
+    category?: string;
+  };
+}
+
+export default function Home({ searchParams }: HomePageProps) {
   // const {t} = useTranslation('translation');
-  const [search, setSearch] = useState("")
-  const [category, setCategory] = useState<string>('none');
+  const search = searchParams.search || '';
+  const category = searchParams.category || 'none';
 
   const itensFiltrados = menu.filter(item => {
     const correspondeCategory = category === 'none' || item.category === category;
@@ -25,7 +30,7 @@ export default function Home() {
       <Header/>
       <div className="mt-8 mb-8 flex flex-wrap flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-6">
         <div className="md:order-2">
-          <Filtro setCategory={setCategory} category={category} /> 
+          <Filter category={category} search={search} /> 
         </div>
       </div>
 

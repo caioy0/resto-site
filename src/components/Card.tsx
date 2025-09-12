@@ -1,6 +1,8 @@
 // src/components/Card.tsx
 // itens cards
-import { useState } from "react"
+'use client';
+import { useState } from "react";
+
 type CardProps = {
     id: number
     name: string
